@@ -1,0 +1,27 @@
+# Create .gitignore
+cat > .gitignore << EOF
+# macOS system files
+.DS_Store
+*.swp
+*~
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# Xcode
+*.xcodeproj
+*.xcworkspace
+DerivedData/
+
+# Build artifacts
+*.app
+*.dmg
+
+# Temporary files
+*.tmp
+*.log
+
+# Dependency directories
+Packages/
+EOF
