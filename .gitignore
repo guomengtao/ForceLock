@@ -16,7 +16,6 @@ DerivedData/
 
 # Build artifacts
 *.app
-*.dmg
 
 # Temporary files
 *.tmp
