@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "MenuBarApp-debug.exe": ["<MenuBarApp-debug.exe>"]
+  "MenuBarApp-debug.module": ["<MenuBarApp-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<MenuBarApp-debug.exe>","<MenuBarApp-debug.module>"]
+  "test": ["<MenuBarApp-debug.exe>","<MenuBarApp-debug.module>"]
+default: "main"
+nodes:
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp":
+    is-mutated: true
+commands:
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp-entitlement.plist"]
+    description: "Write auxiliary file /Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp-entitlement.plist"
+
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/AppDelegate.swift","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/main.swift"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/sources"]
+    description: "Write auxiliary file /Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/sources"
+
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swift.o"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.product/Objects.LinkFileList"
+
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<MenuBarApp-debug.exe>":
+    tool: phony
+    inputs: ["<MenuBarApp-debug.exe-CodeSigning>"]
+    outputs: ["<MenuBarApp-debug.exe>"]
+
+  "<MenuBarApp-debug.module>":
+    tool: phony
+    inputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.swiftmodule"]
+    outputs: ["<MenuBarApp-debug.module>"]
+
+  "C.MenuBarApp-debug.exe":
+    tool: shell
+    inputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.product/Objects.LinkFileList"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/MenuBarApp"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug","-o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp","-module-name","MenuBarApp","-emit-executable","-Xlinker","-alias","-Xlinker","_MenuBarApp_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.product/Objects.LinkFileList","-target","arm64-apple-macosx12.0","-Xlinker","-add_ast_path","-Xlinker","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.swiftmodule","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g"]
+
+  "C.MenuBarApp-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp-entitlement.plist"]
+    outputs: ["<MenuBarApp-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/MenuBarApp"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp-entitlement.plist","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp"]
+
+  "C.MenuBarApp-debug.module":
+    tool: shell
+    inputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/AppDelegate.swift","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/main.swift","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/sources"]
+    outputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swift.o","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.swiftmodule"]
+    description: "Compiling Swift Module 'MenuBarApp' (2 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","MenuBarApp","-emit-dependencies","-emit-module","-emit-module-path","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.swiftmodule","-output-file-map","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/output-file-map.json","-incremental","-c","@/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/sources","-I","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug","-target","arm64-apple-macosx12.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","MenuBarApp_main","-color-diagnostics","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Package.swift","/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/master.swiftdeps"
+  },
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/AppDelegate.swift": {
+    "dependencies": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.d",
+    "object": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/AppDelegate.swiftdeps"
+  },
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/main.swift": {
+    "dependencies": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.d",
+    "object": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swift.o",
+    "swiftmodule": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/.build/arm64-apple-macosx/debug/MenuBarApp.build/main.swiftdeps"
+  }
+}

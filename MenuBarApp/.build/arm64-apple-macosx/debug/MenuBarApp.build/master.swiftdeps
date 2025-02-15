@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "410826fe22da170aac375fd96842b32e"
+build_time: [1739634317, 372434000]
+inputs:
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/AppDelegate.swift": [1739634299, 149345609]
+  "/Users/event/Documents/git-files/App-homework-ui/macOS-keep-lock-app/MenuBarApp/Sources/MenuBarApp/main.swift": [1739628493, 854912328]
