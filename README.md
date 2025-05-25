@@ -20,7 +20,7 @@ A macOS menu bar application that allows you to set screen lock countdowns quick
 - The screen will lock after the selected time
 
 ### URL Scheme
-The URL Scheme supports any duration in seconds, not limited to the menu options.
+The URL Scheme supports any duration in seconds, not limited to the menu options. This means you can set custom durations that are not available in the menu.
 
 ```bash
 # Examples:
@@ -31,7 +31,12 @@ open "macoslock://lock?duration=1800"  # Lock for 30 minutes
 open "macoslock://lock?duration=3600"  # Lock for 1 hour
 ```
 
-Note: The URL Scheme duration parameter is independent of the menu options. You can set any duration in seconds, even if it's not available in the menu.
+#### Important Notes:
+1. The duration parameter is in seconds
+2. You can set any duration, even if it's not in the menu
+3. The app must be running for URL Scheme to work
+4. The duration parameter is independent of menu options
+5. No maximum time limit (use with caution)
 
 ### AppleScript
 ```applescript

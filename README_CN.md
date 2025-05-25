@@ -20,7 +20,7 @@
 - 屏幕将在选定时间后锁定
 
 ### URL Scheme 调用
-URL Scheme 支持任意秒数的时长设置，不限于菜单中的选项。
+URL Scheme 支持任意秒数的时长设置，不限于菜单中的选项。这意味着你可以设置菜单中没有的自定义时长。
 
 ```bash
 # 示例：
@@ -31,7 +31,12 @@ open "macoslock://lock?duration=1800"  # 锁定 30 分钟
 open "macoslock://lock?duration=3600"  # 锁定 1 小时
 ```
 
-注意：URL Scheme 的 duration 参数是独立的，不受菜单选项限制。你可以设置任意秒数的时长，即使该时长在菜单中不可用。
+#### 重要说明：
+1. duration 参数单位为秒
+2. 可以设置任意时长，不限于菜单选项
+3. 使用 URL Scheme 时应用必须处于运行状态
+4. duration 参数与菜单选项完全独立
+5. 没有最大时间限制（请谨慎使用）
 
 ### AppleScript 调用
 ```applescript
