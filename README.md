@@ -9,7 +9,7 @@ A macOS menu bar application that allows you to set screen lock countdowns quick
 - Support for command line, AppleScript, and URL Scheme calls
 
 ## Installation
-1. Download the latest release from the releases page
+1. Download the latest release from [Releases](https://github.com/guomengtao/macOS-keep-lock-app/releases/latest)
 2. Double click the DMG file
 3. Drag the app to your Applications folder
 
@@ -20,9 +20,18 @@ A macOS menu bar application that allows you to set screen lock countdowns quick
 - The screen will lock after the selected time
 
 ### URL Scheme
+The URL Scheme supports any duration in seconds, not limited to the menu options.
+
 ```bash
-open "macoslock://lock?duration=300"  # Lock for 5 minutes
+# Examples:
+open "macoslock://lock?duration=60"    # Lock for 1 minute
+open "macoslock://lock?duration=300"   # Lock for 5 minutes
+open "macoslock://lock?duration=600"   # Lock for 10 minutes
+open "macoslock://lock?duration=1800"  # Lock for 30 minutes
+open "macoslock://lock?duration=3600"  # Lock for 1 hour
 ```
+
+Note: The URL Scheme duration parameter is independent of the menu options. You can set any duration in seconds, even if it's not available in the menu.
 
 ### AppleScript
 ```applescript

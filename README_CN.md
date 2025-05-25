@@ -9,7 +9,7 @@
 - 支持命令行、AppleScript 和 URL Scheme 调用
 
 ## 安装方法
-1. 从发布页面下载最新版本
+1. 从[发布页面](https://github.com/guomengtao/macOS-keep-lock-app/releases/latest)下载最新版本
 2. 双击 DMG 文件
 3. 将应用拖到应用程序文件夹
 
@@ -20,9 +20,18 @@
 - 屏幕将在选定时间后锁定
 
 ### URL Scheme 调用
+URL Scheme 支持任意秒数的时长设置，不限于菜单中的选项。
+
 ```bash
-open "macoslock://lock?duration=300"  # 锁定 5 分钟
+# 示例：
+open "macoslock://lock?duration=60"    # 锁定 1 分钟
+open "macoslock://lock?duration=300"   # 锁定 5 分钟
+open "macoslock://lock?duration=600"   # 锁定 10 分钟
+open "macoslock://lock?duration=1800"  # 锁定 30 分钟
+open "macoslock://lock?duration=3600"  # 锁定 1 小时
 ```
+
+注意：URL Scheme 的 duration 参数是独立的，不受菜单选项限制。你可以设置任意秒数的时长，即使该时长在菜单中不可用。
 
 ### AppleScript 调用
 ```applescript
