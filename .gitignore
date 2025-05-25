@@ -5,22 +5,24 @@ cat > .gitignore << EOF
 *.swp
 *~
 
-# Swift Package Manager
+# Build artifacts
 .build/
-Package.resolved
+*.app/
+*.dmg
+
+# Temporary files
+*.tmp
+*.log
+
+# Development notes
+dev_notes.md
+autodo.md
 
 # Xcode
 *.xcodeproj
 *.xcworkspace
 DerivedData/
 
-# Build artifacts
-*.app
-
-# Temporary files
-*.tmp
-*.log
-
-# Dependency directories
-Packages/
+# Package Manager
+Package.resolved
 EOF

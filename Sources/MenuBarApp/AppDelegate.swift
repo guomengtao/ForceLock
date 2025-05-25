@@ -15,6 +15,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 配置应用不在Dock中显示
         NSApp.setActivationPolicy(.accessory)
         
+        // 注册URL Scheme处理器
+        NSAppleEventManager.shared().setEventHandler(
+            self,
+            andSelector: #selector(handleURLEvent(_:withReplyEvent:)),
+            forEventClass: AEEventClass(kInternetEventClass),
+            andEventID: AEEventID(kAEGetURL)
+        )
+        
         // 创建状态栏项目
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
@@ -145,5 +153,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillTerminate(_ notification: Notification) {
         stopCountdown()
+    }
+    
+    // 处理URL Scheme调用
+    @objc func handleURLEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
+        guard let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue,
+              let url = URL(string: urlString) else {
+            return
+        }
+        
+        // 解析URL参数
+        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+           let queryItems = components.queryItems {
+            for item in queryItems {
+                if item.name == "duration" {
+                    if let duration = Double(item.value ?? "") {
+                        // 创建临时菜单项来触发倒计时
+                        let tempItem = NSMenuItem()
+                        tempItem.representedObject = duration
+                        startCountdown(tempItem)
+                    }
+                }
+            }
+        }
     }
 }
